@@ -11,7 +11,6 @@ public class User {
 	private String address;	  		//地址
 	private int phoneNumber;  		//电话号码
 	private String status;    		//身份 （老师，管理员）
-	private String iamge;  			//头像
 	public Integer getId() {
 		return id;
 	}
@@ -66,11 +65,4 @@ public class User {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getIamge() {
-		return iamge;
-	}
-	public void setIamge(String iamge) {
-		this.iamge = iamge;
-	}
-	
 }
