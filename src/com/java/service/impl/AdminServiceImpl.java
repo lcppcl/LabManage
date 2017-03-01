@@ -1,5 +1,7 @@
 package com.java.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -15,6 +17,10 @@ public class AdminServiceImpl implements AdminService {
 
 	public Integer addTeacher(User user) {
 		return adminDao.addTeacher(user);
+	}
+
+	public List<User> getAllTeacher(String status) {
+		return adminDao.getAllTeacher(status);
 	}
 
 }

@@ -7,4 +7,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into t_user
 		values(null,#{userNumber},#{userName},#{password},#{email},#{sex},#{address},#{phoneNumber},#{status})
 	</insert>
+	<resultMap type="User" id="UserResult">
+		<result property="id" column="id" />
+		<result property="userNumber" column="userNumber" />
+		<result property="userName" column="userName" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="sex" column="sex" />
+		<result property="address" column="address" />
+		<result property="phoneNumber" column="phoneNumber" />
+		<result property="status" column="status" />
+	</resultMap>
+	<select id="getAllTeacher" resultMap="UserResult" parameterType="String" >
+		select * from t_user where status=#{status}
+	</select>
+	
 </mapper> 

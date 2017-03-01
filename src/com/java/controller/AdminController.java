@@ -1,6 +1,6 @@
 package com.java.controller;
 
-import java.io.File;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -8,12 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.java.entity.User;
 import com.java.service.AdminService;
-import com.java.util.DateUtil;
 import com.java.util.ResponseUtil;
 
 @Controller
@@ -36,6 +33,18 @@ public class AdminController {
 			result.append("<script language='javascript'>alert('ÃÌº” ß∞‹£°');</script>");
 		}
 		ResponseUtil.write(response, result);
-		return "redirect:/jsp/admin/addTeacher.jsp";
+		return "index";
 	}
+
+	@RequestMapping("/getAllTeacher")
+	public String getAllTeacher(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		List<User> userList = adminService.getAllTeacher("¿œ ¶");
+		for(User s:userList){
+			System.out.println(s);
+		}
+		request.setAttribute("userList",userList);
+		return "checkTeacher";
+	}
+
 }
