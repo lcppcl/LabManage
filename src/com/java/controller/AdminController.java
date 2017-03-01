@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java.entity.User;
 import com.java.service.AdminService;
@@ -44,7 +45,14 @@ public class AdminController {
 			System.out.println(s);
 		}
 		request.setAttribute("userList",userList);
-		return "checkTeacher";
+		return "forward:/jsp/admin/page/show.jsp";
+	}
+	
+	@RequestMapping("/deleteById")
+	public String deleteById(@RequestParam(value="id",required=false)Integer id,HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		adminService.deleteById(id);
+		return "redirect:/jsp/admin/page/cheackTeacher.jsp";
 	}
 
 }

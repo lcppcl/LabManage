@@ -23,4 +23,8 @@ public class AdminServiceImpl implements AdminService {
 		return adminDao.getAllTeacher(status);
 	}
 
+	public int deleteById(Integer id) {
+		return adminDao.deleteById(id);
+	}
+
 }

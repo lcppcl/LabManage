@@ -10,4 +10,7 @@ public interface AdminService {
 
 	// 查看所有老师
 	public List<User> getAllTeacher(String status);
+
+	// 根据id删除老师
+	public int deleteById(Integer id);
 }
