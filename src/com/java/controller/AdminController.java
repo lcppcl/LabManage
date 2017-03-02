@@ -23,7 +23,7 @@ public class AdminController {
 	@RequestMapping("/addTeacher")
 	public String addTeacher(User user, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		user.setPassword(user.getUserNumber().toString());
+		user.setPassword(user.getUserNumber());
 		user.setStatus("¿œ ¶");
 		System.out.println(user);
 		int resultTotal = adminService.addTeacher(user);
@@ -53,6 +53,24 @@ public class AdminController {
 			HttpServletResponse response) throws Exception {
 		adminService.deleteById(id);
 		return "redirect:/jsp/admin/page/cheackTeacher.jsp";
+	}
+	
+	@RequestMapping("/updateById")
+	public String updateByUserNumber(User user,HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		System.out.println(user.toString());
+		System.out.println(user.getId());
+		adminService.updateById(user);
+		return "redirect:/jsp/admin/page/cheackTeacher.jsp";
+	}
+	@RequestMapping("/findById")
+	public String findByUserNumber(@RequestParam(value="id",required=false)Integer id,HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		System.out.println("hahahahahha" + id);
+		User currentUser = adminService.findById(id);
+		System.out.println(currentUser.toString());
+		request.setAttribute("currentUser",currentUser);
+		return "forward:/jsp/admin/page/updateTeacher.jsp";
 	}
 
 }

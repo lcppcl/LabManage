@@ -3,7 +3,7 @@ package com.java.entity;
 //实体
 public class User {
 	private Integer id; // id
-	private Integer userNumber; // 职工编号
+	private String userNumber; // 职工编号
 	private String userName; // 用户名
 	private String password; // 密码
 	private String email; // 邮箱
@@ -20,11 +20,11 @@ public class User {
 		this.id = id;
 	}
 
-	public Integer getUserNumber() {
+	public String getUserNumber() {
 		return userNumber;
 	}
 
-	public void setUserNumber(Integer userNumber) {
+	public void setUserNumber(String userNumber) {
 		this.userNumber = userNumber;
 	}
 

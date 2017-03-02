@@ -27,4 +27,12 @@ public class AdminServiceImpl implements AdminService {
 		return adminDao.deleteById(id);
 	}
 
+	public int updateById(User user) {
+		return adminDao.updateById(user);
+	}
+
+	public User findById(Integer id) {
+		return adminDao.findById(id);
+	}
+
 }

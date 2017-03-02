@@ -23,11 +23,11 @@ public class UserController {
 		if (resultUser != null) {
 			if (resultUser.getStatus().equals("π‹¿Ì‘±")) {
 				HttpSession session = request.getSession();
-				session.setAttribute("currentUser", resultUser);
+				session.setAttribute("resultUser", resultUser);
 				return "redirect:/jsp/admin/page/user.jsp";
 			} else {
 				HttpSession session = request.getSession();
-				session.setAttribute("currentUser", resultUser);
+				session.setAttribute("resultUser", resultUser);
 				return "redirect:/jsp/admin/page/user.jsp";
 			}
 		} else {

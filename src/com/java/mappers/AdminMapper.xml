@@ -18,11 +18,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="phoneNumber" column="phoneNumber" />
 		<result property="status" column="status" />
 	</resultMap>
-	<select id="getAllTeacher" resultMap="UserResult" parameterType="String" >
+	<select id="getAllTeacher" resultMap="UserResult" parameterType="String">
 		select * from t_user where status=#{status}
 	</select>
 	<delete id="deleteById" parameterType="Integer">
-		delete from t_user where id=#{id}
+		delete from t_user where
+		id=#{id}
 	</delete>
-	
+	<update id="updateById" parameterType="User">
+		update t_user set
+				userNumber=#{userNumber},
+				userName=#{userName},
+				password=#{password},
+				email=#{email},
+				sex=#{sex},
+				address=#{address},
+				phoneNumber=#{phoneNumber},
+				status=#{status}
+		where id=#{id}
+	</update>
+	<select id="findById" resultMap="UserResult" parameterType="Integer">
+		select * from t_user where id=#{id}
+	</select>
 </mapper> 

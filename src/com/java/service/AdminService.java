@@ -13,4 +13,10 @@ public interface AdminService {
 
 	// 根据id删除老师
 	public int deleteById(Integer id);
+
+	// 根据id删除老师
+	public int updateById(User user);
+
+	// 根据id查找
+	public User findById(Integer id);
 }

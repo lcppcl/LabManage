@@ -33,7 +33,9 @@
 				<td>${user.phoneNumber }
 				<td>
 				<td><a
-					href="${pageContext.request.contextPath }/admin/deleteById.do?id=${user.id }"><button>删除</button></td>
+					href="${pageContext.request.contextPath }/admin/deleteById.do?id=${user.id }"><button>删除</button>
+						<a
+						href="${pageContext.request.contextPath }/admin/findById.do?id=${user.id }"><button>修改</button></td>
 				<br />
 			</c:forEach>
 		</tr>
