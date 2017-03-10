@@ -52,10 +52,7 @@
 	<div style="margin: 15px;">
 		<fieldset style="margin-top: 20px;">
 			<legend>添加教师</legend>
-		</fieldset>
-
-
-		<form action="${pageContext.request.contextPath }/admin/addTeacher.do"
+			<form action="${pageContext.request.contextPath }/admin/addTeacher.do"
 			method="post" onclick="return checkForm()">
 			<div>
 				<label>职工编号</label>
@@ -103,8 +100,11 @@
 				</div>
 			</div>
 		</form>
-	</div>
+		</fieldset>
 
+
+		
+	</div>
 </body>
 
 </html>

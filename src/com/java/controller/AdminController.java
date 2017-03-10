@@ -23,53 +23,60 @@ public class AdminController {
 	@RequestMapping("/addTeacher")
 	public String addTeacher(User user, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		user.setPassword(user.getUserNumber());
-		user.setStatus("老师");
-		System.out.println(user);
-		int resultTotal = adminService.addTeacher(user);
+		User flag = adminService.findByNumber(user.getUserNumber());
 		StringBuffer result = new StringBuffer();
-		if (resultTotal > 0) {
-			result.append("<script language='javascript'>alert('添加成功！');</script>");
+		if (flag != null) {
+			result.append("<script language='javascript'>alert('已经存在，重新添加！');</script>");
 		} else {
-			result.append("<script language='javascript'>alert('添加失败！');</script>");
+			user.setPassword(user.getUserNumber());
+			user.setStatus("老师");
+			System.out.println(user);
+			int resultTotal = adminService.addTeacher(user);
+			result.append("<script language='javascript'>alert('添加成功！');</script>");
 		}
+
 		ResponseUtil.write(response, result);
-		return "index";
+		return "forward:/jsp/admin/page/addTeacher.jsp";
 	}
 
 	@RequestMapping("/getAllTeacher")
 	public String getAllTeacher(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		List<User> userList = adminService.getAllTeacher("老师");
-		for(User s:userList){
+		for (User s : userList) {
 			System.out.println(s);
 		}
-		request.setAttribute("userList",userList);
-		return "forward:/jsp/admin/page/show.jsp";
+		request.setAttribute("userList", userList);
+		return "forward:/jsp/admin/page/showTeacher.jsp";
 	}
-	
+
 	@RequestMapping("/deleteById")
-	public String deleteById(@RequestParam(value="id",required=false)Integer id,HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public String deleteById(
+			@RequestParam(value = "id", required = false) Integer id,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
 		adminService.deleteById(id);
 		return "redirect:/jsp/admin/page/cheackTeacher.jsp";
 	}
-	
+
 	@RequestMapping("/updateById")
-	public String updateByUserNumber(User user,HttpServletRequest request,
+	public String updateByUserNumber(User user, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		System.out.println(user.toString());
 		System.out.println(user.getId());
 		adminService.updateById(user);
 		return "redirect:/jsp/admin/page/cheackTeacher.jsp";
 	}
+
 	@RequestMapping("/findById")
-	public String findByUserNumber(@RequestParam(value="id",required=false)Integer id,HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public String findByUserNumber(
+			@RequestParam(value = "id", required = false) Integer id,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
 		System.out.println("hahahahahha" + id);
 		User currentUser = adminService.findById(id);
 		System.out.println(currentUser.toString());
-		request.setAttribute("currentUser",currentUser);
+		request.setAttribute("currentUser", currentUser);
 		return "forward:/jsp/admin/page/updateTeacher.jsp";
 	}
 

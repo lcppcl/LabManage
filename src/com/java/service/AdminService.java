@@ -19,4 +19,7 @@ public interface AdminService {
 
 	// 根据id查找
 	public User findById(Integer id);
+
+	// 根据number查找
+	public User findByNumber(String userNumber);
 }

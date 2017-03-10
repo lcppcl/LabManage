@@ -55,7 +55,7 @@
 				<button class="tab-btn btn-left"><i class="icon-font">&#xe60e;</i></button>
                 <nav class="tab-nav">
                     <div class="tab-nav-content">
-                        <a href="javascript:;" class="content-tab active" data-id="home.html">首页</a>
+                        <a href="javascript:;" class="content-tab active">首页</a>
                     </div>
                 </nav>
                 <button class="tab-btn btn-right"><i class="icon-font">&#xe60f;</i></button>
@@ -66,7 +66,7 @@
 		</section>
 		<div class="layout-footer">@2016 0.1 www.mycodes.net</div>
 	</div>
-	<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/admin/common/lib/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/admin/common/js/sccl.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/admin/common/js/sccl-util.js"></script>
   </body>

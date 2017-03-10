@@ -399,9 +399,9 @@ $(function(){
 						{"id":"4","name":"添加管理","parentId":"3","url":"addTeacher.jsp","icon":"","order":"1","isHeader":"0","childMenus":""},
 						{"id":"5","name":"查看管理","parentId":"3","url":"cheackTeacher.jsp","icon":"","order":"1","isHeader":"0","childMenus":""}
 					]},
-					{"id":"6","name":"订单管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
-						{"id":"7","name":"已付款","parentId":"6","url":"home3.html","icon":"","order":"1","isHeader":"0","childMenus":""},
-						{"id":"8","name":"未付款","parentId":"6","url":"home4.html","icon":"","order":"1","isHeader":"0","childMenus":""}
+					{"id":"6","name":"实验室管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
+						{"id":"7","name":"添加信息","parentId":"6","url":"addLib.jsp","icon":"","order":"1","isHeader":"0","childMenus":""},
+						{"id":"8","name":"查看信息","parentId":"6","url":"cheackLib.jsp","icon":"","order":"1","isHeader":"0","childMenus":""}
 					]}
 				]},
 				{"id":"2","name":"框架案例","parentId":"0","url":"","icon":"","order":"2","isHeader":"1","childMenus":[

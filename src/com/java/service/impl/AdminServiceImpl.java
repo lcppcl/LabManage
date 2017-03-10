@@ -35,4 +35,8 @@ public class AdminServiceImpl implements AdminService {
 		return adminDao.findById(id);
 	}
 
+	public User findByNumber(String userNumber) {
+		return adminDao.findByNumber(userNumber);
+	}
+
 }
