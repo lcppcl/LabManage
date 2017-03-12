@@ -8,10 +8,18 @@ public class Lab {
 	private String labAddress; // 地址
 	private String remark; // 详情
 	private String subject; // 所属类别
-	private String address; // 地址
 	private Integer contain; // 容纳人数
 	private Equipment equipment; // 设备
 	private User User; // 管理老师
+	private int flag;//是否申请
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
 
 	public Integer getId() {
 		return id;
@@ -68,15 +76,6 @@ public class Lab {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public Equipment getEquipment() {
 		return equipment;
 	}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.EquipDao">
+	<resultMap type="Equipment" id="EquipResult">
+		<result property="id" column="id" />
+		<result property="equipNumber" column="equipNumber" />
+		<result property="name" column="name" />
+		<result property="number" column="number" />
+		<result property="fine" column="fine" />
+		<result property="inDate" column="inDate" javaType="java.util.Date"/>
+		<result property="repair" column="repair" javaType="java.util.Date"/>
+	</resultMap>
+
+
+	<insert id="addEquip" parameterType="Equipment">
+		insert into t_equip
+		values(null,#{equipNumber},#{name},#{number},#{fine},#{inDate,jdbcType=DATE},#{repair,jdbcType=DATE})
+	</insert>
+	<select id="findByEquipNumber" resultMap="EquipResult" parameterType="String">
+		select * from t_equip where equipNumber=#{equipNumber}
+	</select>
+
+	<select id="getAllEquip" resultMap="EquipResult">
+		select * from t_equip
+	</select>
+	 <delete id="deleteById" parameterType="Integer">
+		delete from t_equip where
+		id=#{id}
+	</delete>
+	<select id="findById" resultMap="EquipResult" parameterType="Integer">
+		select * from t_equip where id=#{id}
+	</select>
+	<update id="updateById" parameterType="Equipment">
+		update t_equip set
+		equipNumber=#{equipNumber},
+		name=#{name},
+		number=#{number},
+		fine=#{fine},
+		inDate=#{inDate,jdbcType=DATE},
+		repair=#{repair,jdbcType=DATE}
+		where id=#{id}
+	</update>
+</mapper> 

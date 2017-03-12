@@ -7,31 +7,44 @@
 <title>Insert title here</title>
 <script>
 	function checkForm() {
-		var userNumber = $("#userNumber").val();
-		var userName = $("#userName").val();
-		var email = $("#email").val();
-		var phoneNumber = $("#phoneNumber").val();
-		var address = $("#address").val();
-		var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/; /* 邮箱 */
-		var re2 = /^1\d{10}$/;/* 手机 */
+		var labNumber = $("#labNumber").val();
+		var labName = $("#labName").val();
+		var labAddress = $("#labAddress").val();
+		var remark = $("#remark").val();
+		var subject = $("#subject").val();
+		var contain = $("#contain").val();
+		var equipment = $("#equipment").val();
+		var user = $("#user").val();
 
-		if (userNumber == null || userNumber == "") {
+		if (labNumber == null || labNumber == "") {
 			$("#error").html("老师帐号不能为空！");
 			return false;
 		}
-		if (userName == null || userName == "") {
+		if (labName == null || userName == "") {
 			$("#error").html("老师姓名不能为空！");
 			return false;
 		}
-		if (!re.test(email)) {
-			$("#error").html("邮箱不正确！");
+		if (labAddress == null || labAddress == "") {
+			$("#error").html("地址不能为空！");
 			return false;
 		}
-		if (!re2.test(phoneNumber)) {
-			$("#error").html("手机号码不正确！");
+		if (subject == null || subject == "") {
+			$("#error").html("地址不能为空！");
 			return false;
 		}
-		if (address == null || address == "") {
+		if (contain == null || contain == "") {
+			$("#error").html("地址不能为空！");
+			return false;
+		}
+		if (remark == null || remark == "") {
+			$("#error").html("地址不能为空！");
+			return false;
+		}
+		if (equipment == null || equipment == "") {
+			$("#error").html("地址不能为空！");
+			return false;
+		}
+		if (user == null || user == "") {
 			$("#error").html("地址不能为空！");
 			return false;
 		}
@@ -45,8 +58,6 @@
 	<div style="margin: 15px;">
 		<fieldset style="margin-top: 20px;">
 			<legend>添加实验室</legend>
-
-
 			<form
 				action="${pageContext.request.contextPath }/admin/addTeacher.do"
 				method="post" onclick="return checkForm()">
@@ -82,21 +93,21 @@
 					</div>
 				</div>
 				<div>
-					<label>地址</label>
-					<div>
-						<input type="text" name="address" id="address">
-					</div>
-				</div>
-				<div>
 					<label>容纳人数</label>
 					<div>
 						<input type="text" name="contain" id="contain">
 					</div>
 				</div>
 				<div>
-					<label>容纳人数</label>
+					<label>设备</label>
 					<div>
-						<input type="text" name="contain" id="contain">
+						<input type="text" name="equipment" id="equipment">
+					</div>
+				</div>
+				<div>
+					<label>管理老师</label>
+					<div>
+						<input type="text" name="user" id="user">
 					</div>
 				</div>
 				<span><font color="red" id="error">${errorInfo }</font></span>
