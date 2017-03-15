@@ -11,12 +11,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="fine" column="fine" />
 		<result property="inDate" column="inDate" javaType="java.util.Date"/>
 		<result property="repair" column="repair" javaType="java.util.Date"/>
+		<result property="flag" column="flag"/>
 	</resultMap>
 
 
 	<insert id="addEquip" parameterType="Equipment">
 		insert into t_equip
-		values(null,#{equipNumber},#{name},#{number},#{fine},#{inDate,jdbcType=DATE},#{repair,jdbcType=DATE})
+		values(null,#{equipNumber},#{name},#{number},#{fine},#{inDate,jdbcType=DATE},#{repair,jdbcType=DATE},0)
 	</insert>
 	<select id="findByEquipNumber" resultMap="EquipResult" parameterType="String">
 		select * from t_equip where equipNumber=#{equipNumber}
@@ -24,6 +25,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getAllEquip" resultMap="EquipResult">
 		select * from t_equip
+	</select>
+	<select id="getAllEquipByFlag" resultMap="EquipResult" parameterType="int">
+		select * from t_equip where flag=#{flag}
 	</select>
 	 <delete id="deleteById" parameterType="Integer">
 		delete from t_equip where
@@ -39,7 +43,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		number=#{number},
 		fine=#{fine},
 		inDate=#{inDate,jdbcType=DATE},
-		repair=#{repair,jdbcType=DATE}
+		repair=#{repair,jdbcType=DATE},
+		flag=#{flag}
 		where id=#{id}
+	</update>
+	<update id="updateFlag" parameterType="String">
+		update t_equip set flag=1
+		where equipNumber=#{equipNumber}
 	</update>
 </mapper> 

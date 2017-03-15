@@ -27,6 +27,7 @@ public class EquipController {
 			HttpServletResponse response) throws Exception {
 		equipment.setInDate(new Date());
 		equipment.setRepair(new Date());
+		equipment.setFlag(0);
 		Equipment flag = equipService.findByEquipNumber(equipment.getEquipNumber());
 		StringBuffer result = new StringBuffer();
 		if (flag != null) {
@@ -37,7 +38,7 @@ public class EquipController {
 		}
 
 		ResponseUtil.write(response, result);
-		return "forward:/jsp/admin/page/addEquip.jsp";
+		return null;
 	}
 	
 	

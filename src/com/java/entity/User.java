@@ -1,7 +1,9 @@
 package com.java.entity;
 
+import java.io.Serializable;
+
 //实体
-public class User {
+public class User implements Serializable{
 	private Integer id; // id
 	private String userNumber; // 职工编号
 	private String userName; // 用户名

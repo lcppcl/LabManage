@@ -24,7 +24,9 @@ public interface EquipDao {
 	// 根据id查找
 	public Equipment findById(Integer id);
 
+	// 根据flag查找
+	public List<Equipment> getAllEquipByFlag(int flag);
 
-	// 根据number查找
-	// public User findByNumber(String userNumber);
+	// 根据equipNumber更新flag
+	public int updateFlag(String equipNumber);
 }

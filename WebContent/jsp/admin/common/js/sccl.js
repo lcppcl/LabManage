@@ -464,7 +464,7 @@ $(function() {
 				"id" : "7",
 				"name" : "添加信息",
 				"parentId" : "6",
-				"url" : "addLib.jsp",
+				"url" : "addLab1.jsp",
 				"icon" : "",
 				"order" : "1",
 				"isHeader" : "0",

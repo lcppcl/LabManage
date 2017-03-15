@@ -40,9 +40,21 @@ public class EquipServiceImpl implements EquipService {
 		return equipDao.findById(id);
 	}
 
-	//更新
+	//根据id更新
 	public int updateById(Equipment equipment) {
 		// TODO Auto-generated method stub
 		return equipDao.updateById(equipment);
+	}
+
+	//获取所有没有被分配的设备
+	public List<Equipment> getAllEquipByFlag(int flag) {
+		// TODO Auto-generated method stub
+		return equipDao.getAllEquipByFlag(flag);
+	}
+
+	//更新分配状态
+	public int updateFlag(String equipNumber) {
+		// TODO Auto-generated method stub
+		return equipDao.updateFlag(equipNumber);
 	}
 }

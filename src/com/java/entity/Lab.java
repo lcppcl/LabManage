@@ -1,7 +1,9 @@
 package com.java.entity;
 
+import java.io.Serializable;
+
 //实体
-public class Lab {
+public class Lab implements Serializable{
 	private Integer id; // id
 	private String labNumber; // 实验室编号
 	private String labName; // 实验室名称
@@ -9,18 +11,9 @@ public class Lab {
 	private String remark; // 详情
 	private String subject; // 所属类别
 	private Integer contain; // 容纳人数
-	private Equipment equipment; // 设备
-	private User User; // 管理老师
-	private int flag;//是否申请
-
-	public int getFlag() {
-		return flag;
-	}
-
-	public void setFlag(int flag) {
-		this.flag = flag;
-	}
-
+	private String equipNumber; // 设备
+	private String userNumber; // 管理老师
+	
 	public Integer getId() {
 		return id;
 	}
@@ -76,20 +69,22 @@ public class Lab {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public Equipment getEquipment() {
-		return equipment;
+
+	public String getEquipNumber() {
+		return equipNumber;
 	}
 
-	public void setEquipment(Equipment equipment) {
-		this.equipment = equipment;
+	public void setEquipNumber(String equipNumber) {
+		this.equipNumber = equipNumber;
 	}
 
-	public User getUser() {
-		return User;
+	public String getUserNumber() {
+		return userNumber;
 	}
 
-	public void setUser(User user) {
-		User = user;
+	public void setUserNumber(String userNumber) {
+		this.userNumber = userNumber;
 	}
 
+	
 }

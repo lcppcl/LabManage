@@ -19,9 +19,13 @@ public interface EquipService {
 
 	// 根据id查找
 	public Equipment findById(Integer id);
-	
+
 	// 根据id修改
 	public int updateById(Equipment equipment);
 
+	// 根据flag查找
+	public List<Equipment> getAllEquipByFlag(int flag);
 
+	// 根据equipNumber更新flag
+	public int updateFlag(String equipNumber);
 }

@@ -1,8 +1,9 @@
 package com.java.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Equipment {
+public class Equipment implements Serializable{
 	private Integer id; // id
 	private String equipNumber;//器材编号
 	private String name;//器材名称
@@ -10,7 +11,14 @@ public class Equipment {
 	private Integer fine;//好的器材数量
 	private Date inDate;//引进器材时间
 	private Date repair;//维修时间
+	private int flag;//是否已经安排教室
 	
+	public int getFlag() {
+		return flag;
+	}
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
 	public String getEquipNumber() {
 		return equipNumber;
 	}

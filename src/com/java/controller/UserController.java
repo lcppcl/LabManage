@@ -1,5 +1,7 @@
 package com.java.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -7,7 +9,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.java.entity.Equipment;
 import com.java.entity.User;
+import com.java.service.AdminService;
+import com.java.service.EquipService;
 import com.java.service.UserService;
 
 @Controller
@@ -16,6 +21,10 @@ public class UserController {
 
 	@Resource
 	private UserService userService;
+	@Resource
+	private AdminService adminService;
+	@Resource
+	private EquipService equipService;
 
 	@RequestMapping("login")
 	public String login(User user, HttpServletRequest request) {
@@ -36,4 +45,18 @@ public class UserController {
 			return "index";
 		}
 	}
+
+	@RequestMapping("show")
+	public String show(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		List<User> userList = adminService.getAllTeacher("¿œ ¶");
+		session.setAttribute("userListForLab", userList);
+		List<Equipment> equipList = equipService.getAllEquipByFlag(0);
+		for(Equipment e : equipList){
+			System.out.println(e);
+		}
+		session.setAttribute("equipListForLab", equipList);
+		return "redirect:/jsp/admin/page/addLib.jsp";
+	}
+
 }
