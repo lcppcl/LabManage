@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.TeacherDao">
+	<resultMap type="User" id="TeacherResult">
+		<result property="id" column="id" />
+		<result property="userNumber" column="userNumber" />
+		<result property="userName" column="userName" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="sex" column="sex" />
+		<result property="address" column="address" />
+		<result property="phoneNumber" column="phoneNumber" />
+		<result property="status" column="status" />
+	</resultMap>
+	
+	<resultMap type="Lab" id="LabResult">
+		<result property="id" column="id" />
+		<result property="labNumber" column="labNumber" />
+		<result property="labName" column="labName" />
+		<result property="labAddress" column="labAddress" />
+		<result property="remark" column="remark" />
+		<result property="subject" column="subject" />
+		<result property="contain" column="contain" />
+		<result property="equipmentNumber" column="equipmentNumber" />
+		<result property="userNumber" column="userNumber" />
+	</resultMap>
+	
+	<update id="updateById" parameterType="User">
+		update t_user set
+		userNumber=#{userNumber},
+		userName=#{userName},
+		password=#{password},
+		email=#{email},
+		sex=#{sex},
+		address=#{address},
+		phoneNumber=#{phoneNumber},
+		status=#{status}
+		where id=#{id}
+	</update>
+	<select id="findById" resultMap="TeacherResult" parameterType="Integer">
+		select * from t_user where id=#{id}
+	</select>
+	<select id="findByUserNumber" resultMap="LabResult" parameterType="String">
+		select * from t_lab where userNumber=#{userNumber}
+	</select>
+</mapper> 

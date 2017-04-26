@@ -37,7 +37,7 @@ public class UserController {
 			} else {
 				HttpSession session = request.getSession();
 				session.setAttribute("resultUser", resultUser);
-				return "redirect:/jsp/admin/page/user.jsp";
+				return "redirect:/jsp/teacher/page/user.jsp";
 			}
 		} else {
 			request.setAttribute("user", user);
