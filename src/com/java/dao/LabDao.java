@@ -2,6 +2,7 @@ package com.java.dao;
 
 import java.util.List;
 
+import com.java.entity.BookInfo;
 import com.java.entity.Circumference;
 import com.java.entity.Lab;
 import com.java.entity.Lesson;
@@ -25,4 +26,10 @@ public interface LabDao {
 	
 	//获取所有星期
 	public List<Week> getAllWeek();
+	
+	//查看实验室是否预定
+	public BookInfo isBook(BookInfo bookMessage);
+	
+	//预定实验室
+	public void bookLab(BookInfo bookMessage);
 }

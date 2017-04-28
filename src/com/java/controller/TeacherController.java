@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.java.entity.BookInfo;
 import com.java.entity.Lab;
 import com.java.entity.User;
 import com.java.service.TeacherService;
@@ -30,10 +31,11 @@ public class TeacherController {
 		request.setAttribute("resultUser", user2);
 		return "forward:/jsp/teacher/page/cheackMessage.jsp";
 	}
-	
+
 	@RequestMapping("/findByUserNumber")
-	public String findByUserNumber( HttpSession session,HttpServletRequest request) throws Exception {
-		User user = (User) session.getAttribute("resultUser");;
+	public String findByUserNumber(HttpSession session,
+			HttpServletRequest request) throws Exception {
+		User user = (User) session.getAttribute("resultUser");
 		System.out.println(user.toString());
 		String userNumber = user.getUserNumber();
 		List<Lab> labList = teacherService.findByUserNumber(userNumber);

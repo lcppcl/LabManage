@@ -14,4 +14,5 @@ public interface TeacherDao {
 	
 	//根据老师id查找管理实验室
 	public List<Lab> findByUserNumber(String userNumber);
+	
 }

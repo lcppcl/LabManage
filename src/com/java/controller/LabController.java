@@ -1,17 +1,21 @@
 package com.java.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.java.entity.BookInfo;
 import com.java.entity.Circumference;
 import com.java.entity.Lab;
 import com.java.entity.Lesson;
+import com.java.entity.User;
 import com.java.entity.Week;
 import com.java.service.AdminService;
 import com.java.service.EquipService;
@@ -61,5 +65,22 @@ public class LabController {
 			System.out.println(lab.toString());
 		}
 		return "forward:/jsp/teacher/page/bookLab.jsp";
+	}
+
+	@RequestMapping("/bookLab")
+	public String bookLab(BookInfo bookInfo, HttpSession session,
+			HttpServletRequest request) throws Exception {
+		StringBuffer result = new StringBuffer();
+		User user = (User) session.getAttribute("resultUser");
+		bookInfo.setTeacher(user.getUserName());
+		System.out.println(bookInfo.toString()+"hhhhhhhhhh");
+		BookInfo bookMessage1 = labService.isBook(bookInfo);
+		if(bookMessage1 == null){
+			labService.bookLab(bookInfo);
+			request.setAttribute("errorInfo", "预定成功");
+		}else{
+			request.setAttribute("errorInfo", "已经预定");
+		}
+		return "forward:/jsp/teacher/page/bookLab1.jsp";
 	}
 }

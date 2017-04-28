@@ -19,17 +19,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="week" column="week" />
 		<result property="name" column="name" />
 	</resultMap>
-	
+
 	<resultMap type="Lesson" id="lessonResult">
 		<result property="lesson" column="lesson" />
 		<result property="name" column="name" />
 	</resultMap>
-	
+
 	<resultMap type="Week" id="weekResult">
 		<result property="category" column="category" />
 		<result property="name" column="name" />
 	</resultMap>
-	
+
+	<resultMap type="BookInfo" id="bookResult">
+		<result property="id" column="id" />
+		<result property="labName" column="labName" />
+		<result property="circumstance" column="circumstance" />
+		<result property="week" column="week" />
+		<result property="lesson" column="lesson" />
+		<result property="teacher" column="teacher" />
+	</resultMap>
+
 	<insert id="addLab" parameterType="lab">
 		insert into t_lab
 		values(null,#{labNumber},#{labName},#{labAddress},#{remark},#{subject},#{contain},#{equipNumber},#{userNumber})
@@ -44,7 +53,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getAllCircum" resultMap="circumResult">
-		select * from t_circumference
+		select * from
+		t_circumference
 	</select>
 
 	<select id="getAllLesson" resultMap="lessonResult">
@@ -55,5 +65,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from t_week
 	</select>
 
+	<select id="isBook"  resultMap="bookResult" parameterType="bookInfo">
+		select * from t_bookInfo
+		where labNumber=#{labNumber} and circumstance=#{circumstance} and week=#{week} and
+		lesson=#{lesson}
+	</select>
+	
+	<insert id="bookLab" parameterType="bookInfo">
+		insert into t_bookInfo
+		values(null,#{labNumber},#{circumstance},#{week},#{lesson},#{teacher})
+	</insert>
 
 </mapper> 

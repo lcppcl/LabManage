@@ -19,16 +19,16 @@
 	<div style="margin: 15px;">
 		<fieldset style="margin-top: 20px;">
 			<legend>实验室预定</legend>
-			<form action="#" method="post">
+			<form action="${pageContext.request.contextPath }/lab/bookLab.do" method="post">
 				<table class="table table-bordered table-striped" width="800"
 					border="none" cellspacing="0" cellpadding="0">
 					<div>
 						<label>实验室名称</label>
 						<div>
-							<select class="combox" id="id_bookLab" name="labName">
+							<select class="combox" id="id_bookLab" name="labNumber">
 								<optgroup>
 									<c:forEach var="lab" items="${labList }">
-										<option value="${lab.labName}" id="labName">${lab.labName}</option>
+										<option value="${lab.labNumber}" id="labNumber">${lab.labName}</option>
 									</c:forEach>
 								</optgroup>
 							</select>
@@ -40,7 +40,7 @@
 							<select class="combox" id="id_circumstance" name="circumstance">
 								<optgroup>
 									<c:forEach var="circum" items="${circumList }">
-										<option value="${circum.name}" id="circumstance">${circum.name}</option>
+										<option value="${circum.week}" id="circumstance">${circum.name}</option>
 									</c:forEach>
 								</optgroup>
 							</select>
@@ -50,7 +50,7 @@
 							<select class="combox" id="id_week" name="week">
 								<optgroup>
 									<c:forEach var="week" items="${weekList }">
-										<option value="${week.name}" id="week">${week.name}</option>
+										<option value="${week.category}" id="week">${week.name}</option>
 									</c:forEach>
 								</optgroup>
 							</select>
@@ -59,7 +59,7 @@
 							<select class="combox" id="id_lesson" name="lesson">
 								<optgroup>
 									<c:forEach var="lesson" items="${lessonList }">
-										<option value="${lesson.name}" id="lesson">${lesson.name}</option>
+										<option value="${lesson.lesson}" id="lesson">${lesson.name}</option>
 									</c:forEach>
 								</optgroup>
 							</select>

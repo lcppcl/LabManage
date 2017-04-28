@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.java.dao.LabDao;
+import com.java.entity.BookInfo;
 import com.java.entity.Circumference;
 import com.java.entity.Lab;
 import com.java.entity.Lesson;
@@ -34,18 +35,23 @@ public class LabServiceImpl implements LabService {
 	}
 
 	public List<Circumference> getAllCircum() {
-		// TODO Auto-generated method stub
 		return labDao.getAllCircum();
 	}
 
 	public List<Lesson> getAllLesson() {
-		// TODO Auto-generated method stub
 		return labDao.getAllLesson();
 	}
 
 	public List<Week> getAllWeek() {
-		// TODO Auto-generated method stub
 		return labDao.getAllWeek();
+	}
+
+	public BookInfo isBook(BookInfo bookMessage) {
+		return labDao.isBook(bookMessage);
+	}
+
+	public void bookLab(BookInfo bookMessage) {
+		labDao.bookLab(bookMessage);
 	}
 
 }
