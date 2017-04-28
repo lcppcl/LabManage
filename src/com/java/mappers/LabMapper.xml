@@ -15,7 +15,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="userNumber" column="userNumber" />
 	</resultMap>
 
-
+	<resultMap type="Circumference" id="circumResult">
+		<result property="week" column="week" />
+		<result property="name" column="name" />
+	</resultMap>
+	
+	<resultMap type="Lesson" id="lessonResult">
+		<result property="lesson" column="lesson" />
+		<result property="name" column="name" />
+	</resultMap>
+	
+	<resultMap type="Week" id="weekResult">
+		<result property="category" column="category" />
+		<result property="name" column="name" />
+	</resultMap>
+	
 	<insert id="addLab" parameterType="lab">
 		insert into t_lab
 		values(null,#{labNumber},#{labName},#{labAddress},#{remark},#{subject},#{contain},#{equipNumber},#{userNumber})
@@ -25,14 +39,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from t_lab where labNumber=#{labNumber}
 	</select>
 
-	<!-- <select id="getAllEquip" resultMap="EquipResult"> select * from t_equip 
-		</select> <select id="getAllEquipByFlag" resultMap="EquipResult" parameterType="int"> 
-		select * from t_equip where flag=#{flag} </select> <delete id="deleteById" 
-		parameterType="Integer"> delete from t_equip where id=#{id} </delete> <select 
-		id="findById" resultMap="EquipResult" parameterType="Integer"> select * from 
-		t_equip where id=#{id} </select> <update id="updateById" parameterType="Equipment"> 
-		update t_equip set equipNumber=#{equipNumber}, name=#{name}, number=#{number}, 
-		fine=#{fine}, inDate=#{inDate,jdbcType=DATE}, repair=#{repair,jdbcType=DATE}, 
-		flag=#{flag} where id=#{id} </update> -->
+	<select id="getAllLab" resultMap="LabResult">
+		select * from t_lab
+	</select>
+
+	<select id="getAllCircum" resultMap="circumResult">
+		select * from t_circumference
+	</select>
+
+	<select id="getAllLesson" resultMap="lessonResult">
+		select * from t_lesson
+	</select>
+
+	<select id="getAllWeek" resultMap="weekResult">
+		select * from t_week
+	</select>
+
 
 </mapper> 

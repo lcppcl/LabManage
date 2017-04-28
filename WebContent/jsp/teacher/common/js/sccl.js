@@ -454,7 +454,7 @@ $(function() {
 			}]
 		}, {
 			"id" : "6",
-			"name" : "实验室管理",
+			"name" : "预定",
 			"parentId" : "1",
 			"url" : "",
 			"icon" : "&#xe602;",
@@ -462,9 +462,9 @@ $(function() {
 			"isHeader" : "0",
 			"childMenus" : [ {
 				"id" : "7",
-				"name" : "添加信息",
+				"name" : "实验室预定",
 				"parentId" : "6",
-				"url" : "addLab1.jsp",
+				"url" : "bookLab1.jsp",
 				"icon" : "",
 				"order" : "1",
 				"isHeader" : "0",

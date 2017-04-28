@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 查看自己管理的实验室 -->
-<c:redirect url="/teacher/findByUserNumber.do" />
+	<c:redirect url="/lab/getAllLab.do" />
 </body>
 </html>
